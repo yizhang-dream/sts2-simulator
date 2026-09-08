@@ -1,0 +1,24 @@
+[project]
+name = "sts2-simulator"
+version = "0.2.0"
+description = "Headless game simulator for Slay the Spire 2 — Python reimplementation of game rules with gymnasium interface and live-game TCP bridge"
+requires-python = ">=3.11"
+dependencies = [
+    "gymnasium>=1.0.0",
+    "numpy>=1.26",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0",
+    "pytest-cov>=5.0",
+]
+
+[tool.setuptools.packages.find]
+include = ["sts2_env*"]
+
+[tool.setuptools.package-data]
+"sts2_env.cards" = ["data/*.json"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
